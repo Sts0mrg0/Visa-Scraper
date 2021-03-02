@@ -4,15 +4,16 @@
 
 const cheerio = require('cheerio');
 var nosql = require('nosql');
-var DBfolder = 'db/';
-var dba = nosql.load(DBfolder+'alpha.nosql');
 var hash = require('object-hash');
 var googlesheets = require('g-sheets-api');
-//https://docs.google.com/spreadsheets/d/1nhcEA_Hy7Hv0SFA-QCpJACL6AhPa6xj9Vp3_cUP6qTI/edit#gid=0
 const nodeHtmlToImage = require('node-html-to-image');
 var diff_match_patch = require('diff-match-patch');
-const scraperDelay = 1500;
+var fs = require('fs');
 
+var googleSheetId = "1nhcEA_AAAAAAAAA-BBBBBBBBBBBBBBBBBBB_CCCCCCC";   //see g-sheets-api manual how to properly share your spreadsheet
+var DBfolder = 'db/';
+var dba = nosql.load(DBfolder+'alpha.nosql');
+const scraperDelay = 1500;
 var scraper = [];
 
 //async - await
@@ -200,7 +201,7 @@ function getScraperList() {
 
   function getSheets() {
     const readerOptions = {
-      sheetId: "1nhcEA_Hy7Hv0SFA-QCpJACL6AhPa6xj9Vp3_cUP6qTI",
+      sheetId: googleSheetId;
       returnAllResults: true
     };
 
@@ -217,6 +218,13 @@ function getScraperList() {
   getSheets();
 }
 
+function checkDBfolder() {
+  if (!fs.existsSync(DBfolder)){
+      fs.mkdirSync(DBfolder);
+  }
+}
+
 //=== MAIN ===
 
+checkDBfolder();
 getScraperList();
