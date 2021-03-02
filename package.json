@@ -1,0 +1,20 @@
+{
+  "name": "embassies-visa-scraper-bot",
+  "version": "3.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "Denis Yusupov",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "diff-match-patch": "^1.0.5",
+    "node-html-to-image": "^3.1.0",
+    "nosql": "^6.1.0",
+    "object-hash": "^2.1.1"
+  },
+  "devDependencies": {
+    "g-sheets-api": "^1.4.1"
+  }
+}
