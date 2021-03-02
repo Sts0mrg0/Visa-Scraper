@@ -201,7 +201,7 @@ function getScraperList() {
 
   function getSheets() {
     const readerOptions = {
-      sheetId: googleSheetId;
+      sheetId: googleSheetId,
       returnAllResults: true
     };
 
