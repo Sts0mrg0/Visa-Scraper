@@ -206,7 +206,7 @@ function getScraperList() {
 
     googlesheets(readerOptions, (results) => {
       scraper = results;
-      console.log(results.length + ' embassies loaded');
+      console.log('List of ' + results.length + ' items loaded');
 //      console.log(JSON.stringify(results));
       rebuildList();
       iterateList();
